@@ -52,7 +52,7 @@ psql -h localhost -U postgres -d postgres
 
 ## Custom Configuration
 
-If you need to add custom configuration to PostgreSQL, you can do so by copying your configuration file into the container. For example:
+If you need to add custom configuration to PostgreSQL, you change the `docker-compose.yml` file to change `db name`, `db user`, `db password`, and `db port`.
 
 ```docker-compose.yml
 name: "postgres16"
@@ -68,8 +68,6 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
-    // Add your custom configuration file
-    // command: ["-c", "config_file=/path/to/your/custom.conf"] // Uncomment this line 
     restart: unless-stopped
 volumes:
   postgres_data:
